@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Editar Cliente</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputLabel value="id:" for="ID" />
+        <h:inputText id="id" value="#{clienteBean.cliente.id}" required="true" />
+        
+        <h:outputLabel value="Nome:" for="Nome" />
+        <h:inputText id="nome" value="#{clienteBean.cliente.nome}" required="true" />
+
+        <h:outputLabel value="Email:" for="Email" />
+        <h:inputText id="email" value="#{clienteBean.cliente.email}" required="true" />
+
+        <h:outputLabel for="cep" value="CEP:" />
+            <h:inputText id="cep" value="#{clienteBean.cliente.cep}" 
+                         maxlength="8" 
+                         onblur="#{clienteBean.consultarEndereco()}" />
+
+            <h:outputLabel for="endereco" value="Endereço:" />
+            <h:inputText id="endereco" value="#{clienteBean.cliente.endereco}" disabled="true" />
+
+            <h:outputLabel for="bairro" value="Bairro:" />
+            <h:inputText id="bairro" value="#{clienteBean.cliente.bairro}" disabled="true" />
+
+            <h:outputLabel for="cidade" value="Cidade:" />
+            <h:inputText id="cidade" value="#{clienteBean.cliente.cidade}" disabled="true" />
+
+            <h:outputLabel for="estado" value="Estado:" />
+            <h:inputText id="estado" value="#{clienteBean.cliente.estado}" disabled="true" />
+
+            <h:commandButton value="Salvar" action="#{clienteBean.salvar()}" />
+            <h:commandButton value="Cancelar" action="#{clienteBean.listarTodos()}" />
+
+    </h:form>
+</h:body>
+</html>
